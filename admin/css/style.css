@@ -1,0 +1,23 @@
+/* Reset all margins, paddings and outline */
+#CPM-wrap * { margin: 0; padding: 0; outline: 0; }
+
+/* Restore and modify some of the reset elements' styles */
+#CPM-wrap h2 { padding: 9px 0 4px; }
+#CPM-wrap h3 { padding-bottom: 10px; font-weight: normal; color: #333; float: left; display: inline; font-size: 14px; line-height: 20px; margin-right: 10px; }
+#CPM-wrap textarea { padding: 3px; display: block; width: 342px; min-height: 160px; margin: 10px 0; }
+#CPM-wrap select { padding: 2px; width: 342px; display: block; margin: 10px 0; }
+#CPM-wrap .button-primary { padding: 0 10px; }
+#CPM-wrap .regular-text { padding: 3px; display: block; margin: 10px 0; width: 342px; }
+#CPM-wrap div.updated { margin: 5px 0 15px; padding: 1px 12px; }
+#CPM-wrap div.updated p { margin: 0.5em 0; padding: 2px; }
+
+/* Additional styles */
+#CPM-wrap .cpm-activate p { margin: 0; padding: 0; }
+#CPM-wrap .cpm-section { padding: 10px 0; }
+#CPM-wrap .cpm-js-hide { clear: both; }
+
+#CPM-wrap .cpm-controls { width: 60px; height: 20px; background: url('images/toggle-icon.png') no-repeat; position: relative; float: left; display: inline; }
+#CPM-wrap .cpm-controls span { position: absolute; top: 0; left: -50px; z-index: 10; width: 30px; height: 20px; background: url('images/toggler-icon.png') no-repeat; cursor: pointer; }
+#CPM-wrap .cpm-controls span.on { left: 40px; }
+
+#adminmenu #toplevel_page_cp_maintenance div.wp-menu-image:before { font-family: 'Dashicons' !important; content: "\f308"; }
