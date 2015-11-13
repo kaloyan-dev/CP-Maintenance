@@ -8,3 +8,6 @@ A simple maintenance mode plugin for WordPress which allows:
 - redirect to a specific page
 - redirect to the login page
 - display custom HTML / CSS
+
+## Screenshot
+![](http://i.imgur.com/bJ1Uof1.pnghttps://github.com/github/training-kit/blob/master/images/professortocat.png)
