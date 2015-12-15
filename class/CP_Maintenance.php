@@ -31,6 +31,13 @@ class CP_Maintenance {
 
 
 	public static function render_menu_page() {
+		$message       = '';
+		$status        = get_option('cpm-status');
+		$redirect      = get_option('cpm-redirect');
+		$redirect_url  = get_option('cpm-redirect-url');
+		$redirect_page = get_option('cpm-redirect-page');
+		$redirect_html = get_option('cpm-redirect-html');
+
 		if (isset($_POST['cpm-save-settings'])) {
 			$message = '
 				<div id="setting-error-settings_updated" class="updated settings-error"> 
@@ -38,9 +45,9 @@ class CP_Maintenance {
 						<strong>Settings saved.</strong>
 					</p>
 				</div>';
-			$status = $_POST['cpm-status'];
-			$redirect = $_POST['cpm-redirect'];
-			$redirect_url = $_POST['cpm-redirect-url'];
+			$status        = $_POST['cpm-status'];
+			$redirect      = $_POST['cpm-redirect'];
+			$redirect_url  = $_POST['cpm-redirect-url'];
 			$redirect_page = $_POST['cpm-redirect-page'];
 			$redirect_html = stripslashes($_POST['cpm-redirect-html']);
 
@@ -49,13 +56,6 @@ class CP_Maintenance {
 			update_option('cpm-redirect-url', $redirect_url);
 			update_option('cpm-redirect-page', $redirect_page);
 			update_option('cpm-redirect-html', $redirect_html);
-		} else {
-			$message = '';
-			$status = get_option('cpm-status');
-			$redirect = get_option('cpm-redirect');
-			$redirect_url = get_option('cpm-redirect-url');
-			$redirect_page = get_option('cpm-redirect-page');
-			$redirect_html = get_option('cpm-redirect-html');
 		}
 		?>
 		<div class="wrap">
@@ -64,7 +64,7 @@ class CP_Maintenance {
 				<?php echo $message; ?>
 				<form method="post" action="?page=cp_maintenance">
 					<?php
-						$status = get_option('cpm-status');
+						$status   = get_option('cpm-status');
 						$redirect = get_option('cpm-redirect');
 					?>
 					<div class="cpm-section cpm-activate">
@@ -141,10 +141,10 @@ class CP_Maintenance {
 
 	public static function front_handle() {
 		if (!is_user_logged_in()) {
-			$id = get_the_id();
-			$status = get_option('cpm-status');
-			$redirect = get_option('cpm-redirect');
-			$redirect_url = get_option('cpm-redirect-url');
+			$id            = get_the_id();
+			$status        = get_option('cpm-status');
+			$redirect      = get_option('cpm-redirect');
+			$redirect_url  = get_option('cpm-redirect-url');
 			$redirect_page = get_option('cpm-redirect-page');
 			$redirect_html = get_option('cpm-redirect-html');
 
