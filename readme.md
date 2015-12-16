@@ -12,5 +12,5 @@ A simple maintenance mode plugin for WordPress which allows:
 ## Screenshot
 ![](http://i.imgur.com/bJ1Uof1.pnghttps://github.com/github/training-kit/blob/master/images/professortocat.png)
 
-## WordPress
-Tested up to version 4.4
+## Compatibility
+Tested up to WordPress version 4.4 (released December 8, 2015)
