@@ -84,7 +84,7 @@ class CP_Maintenance {
 					<div class="cl">&nbsp;</div>
 					<div class="cpm-section">
 						<label>
-							<input type="radio" name="cpm-redirect" value="redirect" <?php checked( $redirect == 'redirect' ); ?> />
+							<input type="radio" name="cpm-redirect" value="redirect" <?php checked( $redirect === 'redirect' ); ?> />
 							<span><?php _e( 'Redirect to a specific URL:', 'cpm' ); ?></span>
 						</label>
 						<input type="text" class="regular-text" value="<?php echo $redirect_url; ?>" name="cpm-redirect-url" />
@@ -99,13 +99,13 @@ class CP_Maintenance {
 							?>
 							<div class="cpm-section">
 								<label>
-									<input type="radio" name="cpm-redirect" value="page" <?php checked( $redirect == 'page' ); ?>/>
+									<input type="radio" name="cpm-redirect" value="page" <?php checked( $redirect === 'page' ); ?>/>
 									<span><?php _e( 'Redirect to a specific page:', 'cpm' ); ?></span>
 								</label>
 
 								<select name="cpm-redirect-page">
 									<?php foreach ( $pages_list as $id => $title ): ?>
-										<option value="<?php echo $id; ?>" <?php selected( $redirect_page == $id ); ?>>
+										<option value="<?php echo $id; ?>" <?php selected( $redirect_page === $id ); ?>>
 											<?php echo $title; ?>
 										</option>
 									<?php endforeach; ?>
@@ -115,14 +115,14 @@ class CP_Maintenance {
 					?>
 					<div class="cpm-section">
 						<label>
-							<input type="radio" name="cpm-redirect" value="html" <?php checked( $redirect == 'html' ); ?> />
+							<input type="radio" name="cpm-redirect" value="html" <?php checked( $redirect === 'html' ); ?> />
 							<span><?php _e( 'Use custom HTML / CSS:', 'cpm' ); ?></span>
 						</label>
 						<textarea id="cpm-html" name="cpm-redirect-html"><?php echo $redirect_html; ?></textarea>
 					</div>
 					<div class="cpm-section">
 						<label>
-							<input type="radio" name="cpm-redirect" value="login" <?php checked( $redirect == 'login' ); ?> />
+							<input type="radio" name="cpm-redirect" value="login" <?php checked( $redirect === 'login' ); ?> />
 							<span><?php _e( 'Redirect to the login page', 'cpm' ); ?></span>
 						</label>
 					</div>
@@ -162,7 +162,7 @@ class CP_Maintenance {
 				} elseif ( $redirect === 'html' && $redirect_html ) {
 					echo $redirect_html;
 					exit;
-				} elseif ( $redirect == 'login' ) {
+				} elseif ( $redirect === 'login' ) {
 					wp_redirect( wp_login_url() );
 					exit;
 				}
