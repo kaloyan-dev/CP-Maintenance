@@ -70,13 +70,13 @@ class CP_Maintenance {
 						<h3><?php _e( 'Enable Maintenance Mode:', 'cpm' ); ?></h3>
 						<p class="cpm-js-hide">
 							<label>
-								<input type="radio" name="cpm-status" value="off" <?php echo ( $status === 'off' ) ? 'checked="checked"' : ''; ?> />
+								<input type="radio" name="cpm-status" value="off" <?php checked( $status === 'off' ); ?> />
 								<span><?php _e( 'OFF', 'cpm' ); ?></span>
 							</label>
 						</p>
 						<p class="cpm-js-hide">
 							<label>
-								<input type="radio" name="cpm-status" value="on" <?php echo ( $status === 'on' ) ? 'checked="checked"' : ''; ?> />
+								<input type="radio" name="cpm-status" value="on" <?php checked( $status === 'on' ); ?> />
 								<span><?php _e( 'ON', 'cpm' ); ?></span>
 							</label>
 						</p>
@@ -84,7 +84,7 @@ class CP_Maintenance {
 					<div class="cl">&nbsp;</div>
 					<div class="cpm-section">
 						<label>
-							<input type="radio" name="cpm-redirect" value="redirect" <?php echo ( $redirect == 'redirect' ) ? 'checked="checked"' : ''; ?> />
+							<input type="radio" name="cpm-redirect" value="redirect" <?php checked( $redirect == 'redirect' ); ?> />
 							<span><?php _e( 'Redirect to a specific URL:', 'cpm' ); ?></span>
 						</label>
 						<input type="text" class="regular-text" value="<?php echo $redirect_url; ?>" name="cpm-redirect-url" />
@@ -99,13 +99,13 @@ class CP_Maintenance {
 							?>
 							<div class="cpm-section">
 								<label>
-									<input type="radio" name="cpm-redirect" value="page" <?php echo ( $redirect == 'page' ) ? 'checked="checked"' : ''; ?> />
+									<input type="radio" name="cpm-redirect" value="page" <?php checked( $redirect == 'page' ); ?>/>
 									<span><?php _e( 'Redirect to a specific page:', 'cpm' ); ?></span>
 								</label>
 
 								<select name="cpm-redirect-page">
 									<?php foreach ( $pages_list as $id => $title ): ?>
-										<option value="<?php echo $id; ?>" <?php echo ( $redirect_page == $id ) ? 'selected="selected"' : ''; ?>>
+										<option value="<?php echo $id; ?>" <?php selected( $redirect_page == $id ); ?>>
 											<?php echo $title; ?>
 										</option>
 									<?php endforeach; ?>
@@ -115,14 +115,14 @@ class CP_Maintenance {
 					?>
 					<div class="cpm-section">
 						<label>
-							<input type="radio" name="cpm-redirect" value="html" <?php echo ( $redirect == 'html' ) ? 'checked="checked"' : ''; ?> />
+							<input type="radio" name="cpm-redirect" value="html" <?php checked( $redirect == 'html' ); ?> />
 							<span><?php _e( 'Use custom HTML / CSS:', 'cpm' ); ?></span>
 						</label>
 						<textarea id="cpm-html" name="cpm-redirect-html"><?php echo $redirect_html; ?></textarea>
 					</div>
 					<div class="cpm-section">
 						<label>
-							<input type="radio" name="cpm-redirect" value="login" <?php echo ( $redirect == 'login' ) ? 'checked="checked"' : ''; ?> />
+							<input type="radio" name="cpm-redirect" value="login" <?php checked( $redirect == 'login' ); ?> />
 							<span><?php _e( 'Redirect to the login page', 'cpm' ); ?></span>
 						</label>
 					</div>
