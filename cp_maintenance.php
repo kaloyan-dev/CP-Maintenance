@@ -2,7 +2,7 @@
 /**
  * Plugin Name: CP Maintenance
  * Description: A maintenance mode plugin which allows you to setup a maintenance page, redirect to a specific URL or use custom HTML.
- * Version: 1.0
+ * Version: 1.0.1
  * Author: Kaloyan Ivanov
  * Author URI: http://kaloyan.codepeace.net/
  * License: GPL2
