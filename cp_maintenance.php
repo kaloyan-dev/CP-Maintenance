@@ -4,7 +4,7 @@
  * Description: A maintenance mode plugin which allows you to setup a maintenance page, redirect to a specific URL or use custom HTML.
  * Version: 1.0.2
  * Author: Kaloyan Ivanov
- * Author URI: http://kaloyan.codepeace.net/
+ * Author URI: http://codepeace.net/
  * License: GPL2
  */
 
