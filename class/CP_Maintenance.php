@@ -1,7 +1,7 @@
 <?php
 
 class CP_Maintenance {
-	public function install() {
+	public static function install() {
 		add_option( 'cpm-status', 'off' );
 		add_option( 'cpm-redirect', 'redirect' );
 		add_option( 'cpm-redirect-url', '' );
@@ -9,7 +9,7 @@ class CP_Maintenance {
 		add_option( 'cpm-redirect-html', '' );
 	}
 
-	function uninstall() {
+	public static function uninstall() {
 		delete_option( 'cpm-status' );
 		delete_option( 'cpm-redirect' );
 		delete_option( 'cpm-redirect-url' );
