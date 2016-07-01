@@ -34,7 +34,7 @@ class CP_Maintenance {
 		$status        = get_option( 'cpm-status' );
 		$redirect      = get_option( 'cpm-redirect' );
 		$redirect_url  = get_option( 'cpm-redirect-url' );
-		$redirect_page = get_option( 'cpm-redirect-page' );
+		$redirect_page = intval( get_option( 'cpm-redirect-page' ) );
 		$redirect_html = get_option( 'cpm-redirect-html' );
 
 		if ( isset( $_POST['cpm-save-settings'] ) ) {
@@ -47,7 +47,7 @@ class CP_Maintenance {
 			$status        = $_POST['cpm-status'];
 			$redirect      = $_POST['cpm-redirect'];
 			$redirect_url  = $_POST['cpm-redirect-url'];
-			$redirect_page = $_POST['cpm-redirect-page'];
+			$redirect_page = intval( $_POST['cpm-redirect-page'] );
 			$redirect_html = stripslashes($_POST['cpm-redirect-html']);
 
 			update_option( 'cpm-status'       , $status );
@@ -148,21 +148,27 @@ class CP_Maintenance {
 			$status        = get_option( 'cpm-status' );
 			$redirect      = get_option( 'cpm-redirect' );
 			$redirect_url  = get_option( 'cpm-redirect-url' );
-			$redirect_page = get_option( 'cpm-redirect-page' );
+			$redirect_page = intval( get_option( 'cpm-redirect-page' ) );
 			$redirect_html = get_option( 'cpm-redirect-html' );
 
 			if ( $status === 'on' ) {
 				if ( $redirect === 'redirect' && $redirect_url && get_permalink( $id ) !== $redirect_url ) {
 					wp_redirect( $redirect_url );
 					exit;
-				} elseif ( $redirect === 'page' && $redirect_page && $id !== $redirect_page ) {
+				}
+
+				if ( $redirect === 'page' && $redirect_page && $id !== $redirect_page ) {
 					$redirect_to = get_permalink( $redirect_page );
 					wp_redirect( $redirect_to );
 					exit;
-				} elseif ( $redirect === 'html' && $redirect_html ) {
+				}
+
+				if ( $redirect === 'html' && $redirect_html ) {
 					echo $redirect_html;
 					exit;
-				} elseif ( $redirect === 'login' ) {
+				}
+
+				if ( $redirect === 'login' ) {
 					wp_redirect( wp_login_url() );
 					exit;
 				}
