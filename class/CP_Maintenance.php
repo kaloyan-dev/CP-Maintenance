@@ -143,36 +143,41 @@ class CP_Maintenance {
 	}
 
 	public static function front_handle() {
-		if ( ! is_user_logged_in() ) {
-			$id            = get_the_id();
-			$status        = get_option( 'cpm-status' );
-			$redirect      = get_option( 'cpm-redirect' );
-			$redirect_url  = get_option( 'cpm-redirect-url' );
-			$redirect_page = intval( get_option( 'cpm-redirect-page' ) );
-			$redirect_html = get_option( 'cpm-redirect-html' );
+		if ( is_user_logged_in() ) {
+			return;
+		}
 
-			if ( $status === 'on' ) {
-				if ( $redirect === 'redirect' && $redirect_url && get_permalink( $id ) !== $redirect_url ) {
-					wp_redirect( $redirect_url );
-					exit;
-				}
+		$status = get_option( 'cpm-status' );
 
-				if ( $redirect === 'page' && $redirect_page && $id !== $redirect_page ) {
-					$redirect_to = get_permalink( $redirect_page );
-					wp_redirect( $redirect_to );
-					exit;
-				}
+		if ( $status !== 'on' ) {
+			return;
+		}
 
-				if ( $redirect === 'html' && $redirect_html ) {
-					echo $redirect_html;
-					exit;
-				}
+		$id            = get_the_id();
+		$redirect      = get_option( 'cpm-redirect' );
+		$redirect_url  = get_option( 'cpm-redirect-url' );
+		$redirect_page = intval( get_option( 'cpm-redirect-page' ) );
+		$redirect_html = get_option( 'cpm-redirect-html' );
 
-				if ( $redirect === 'login' ) {
-					wp_redirect( wp_login_url() );
-					exit;
-				}
-			}
+		if ( $redirect === 'redirect' && $redirect_url && get_permalink( $id ) !== $redirect_url ) {
+			wp_redirect( $redirect_url );
+			exit;
+		}
+
+		if ( $redirect === 'page' && $redirect_page && $id !== $redirect_page ) {
+			$redirect_to = get_permalink( $redirect_page );
+			wp_redirect( $redirect_to );
+			exit;
+		}
+
+		if ( $redirect === 'html' && $redirect_html ) {
+			echo $redirect_html;
+			exit;
+		}
+
+		if ( $redirect === 'login' ) {
+			wp_redirect( wp_login_url() );
+			exit;
 		}
 	}
 }
