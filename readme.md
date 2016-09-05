@@ -10,7 +10,7 @@ A simple maintenance mode plugin for WordPress which allows:
 - display custom HTML / CSS
 
 ## Screenshot
-![](http://i.imgur.com/bJ1Uof1.pnghttps://github.com/github/training-kit/blob/master/images/professortocat.png)
+![](http://i.imgur.com/bJ1Uof1.png)
 
 ## Compatibility
 Tested up to WordPress version 4.6
