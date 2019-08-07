@@ -1,6 +1,12 @@
 <?php
 
 class CP_Maintenance {
+
+	/**
+	 * Sets up the plugin options
+	 * 
+	 * @return void
+	 */
 	public static function install() {
 		add_option( 'cpm-status', 'off' );
 		add_option( 'cpm-redirect', 'redirect' );
@@ -9,6 +15,11 @@ class CP_Maintenance {
 		add_option( 'cpm-redirect-html', '' );
 	}
 
+	/**
+	 * Uninstall method - removes the plugin options
+	 * 
+	 * @return void
+	 */
 	public static function uninstall() {
 		delete_option( 'cpm-status' );
 		delete_option( 'cpm-redirect' );
@@ -17,6 +28,11 @@ class CP_Maintenance {
 		delete_option( 'cpm-redirect-html' );
 	}
 
+	/**
+	 * Adds the plugin page in the WordPress dashboard
+	 *
+	 * @return  void
+	 */
 	public static function add_menu_page() {
 		add_menu_page(
 			__( 'Maintenance', 'cpm' ),
@@ -29,6 +45,11 @@ class CP_Maintenance {
 		);
 	}
 
+	/**
+	 * Renders the plugin menu page
+	 * 
+	 * @return void
+	 */
 	public static function render_menu_page() {
 		$message       = '';
 		$status        = get_option( 'cpm-status' );
@@ -136,12 +157,22 @@ class CP_Maintenance {
 		<?php
 	}
 
+	/**
+	 * Enqueues the plugin scripts and styles
+	 * 
+	 * @return void
+	 */
 	public static function scripts_and_styles() {
 		wp_enqueue_style( 'cpm-style', plugins_url( '../admin/css/style.css', __FILE__ ), array(), '1.0', 'screen' );
 
 		wp_enqueue_script( 'cpm-functions', plugins_url( '../admin/js/functions.js', __FILE__ ), array( 'jquery' ), '1.0' );
 	}
 
+	/**
+	 * Handles the front-end logic of the maintenance functionality
+	 * 
+	 * @return void
+	 */
 	public static function front_handle() {
 		if ( is_user_logged_in() ) {
 			return;
