@@ -1,33 +1,22 @@
-jQuery(function($) {
-	/* Define the main wrapper */
-	var $wrapper = $('#CPM-wrap');
+(function() {
+	var $toggle = document.querySelector('.cpm-controls');
 
-	/* Hide all elements used for non-javascript browsers */
-	$wrapper.find('.cpm-js-hide').hide();
+	if (! $toggle) {
+		return;
+	}
 
-	/* Append custom controls */
-	var $controls = $('<div class="cpm-controls"><span></span></div>');
+	$toggle.onclick = function() {
+		$toggle.classList.toggle('cpm-on');
 
-	$wrapper.find('.cpm-activate').append($controls);
+		var radioIndex   = $toggle.classList.contains('cpm-on') ? 1 : 0;
+		var radioButtons = document.querySelectorAll('.cpm-activate input[type="radio"]');
 
-	/* Make controls functional */
-	var $toggler = $wrapper.find('.cpm-controls span'),
-		togglerPos = $wrapper.find('.cpm-activate input[type="radio"]:checked').index('.cpm-activate input[type="radio"]') * 30;
+		Array.from(radioButtons).map(function(radio, index) {
+			if (radioIndex !== index) {
+				return;
+			}
 
-	$toggler.css('left', togglerPos);
-
-	$(document).on('click', '.cpm-controls span', function() {
-
-		var togglerX = parseInt($toggler.css('left')),
-			moveTo = (togglerX == 0) ? 30 : 0,
-			radioIdx = (togglerX == 0) ? 1 : 0;
-
-		$toggler.stop().animate({
-			left: moveTo
-		}, 200, 'linear', function() {
-			$toggler.toggleClass('on');
-			$wrapper.find('.cpm-activate input[type="radio"]').prop('checked', false).eq(radioIdx).prop('checked', true);
+			radio.checked = true;
 		});
-	});
-
-});
+	}
+})();
