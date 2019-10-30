@@ -3,10 +3,6 @@
         <h2><?php _e( 'Maintenance Options', 'cpm' ); ?></h2>
         <?php echo $message; ?>
         <form method="post" action="?page=cp_maintenance">
-            <?php
-                $status   = get_option( 'cpm-status' );
-                $redirect = get_option( 'cpm-redirect' );
-            ?>
             <div class="cpm-section cpm-activate">
                 <h3><?php _e( 'Enable Maintenance Mode:', 'cpm' ); ?></h3>
                 <p class="cpm-hidden">
