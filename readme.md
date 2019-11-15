@@ -13,4 +13,4 @@ A simple maintenance mode plugin for WordPress which allows:
 ![](https://i.imgur.com/v8rrFdO.png)
 
 ## Compatibility
-Tested up to WordPress version 5.2.2
+Tested up to WordPress version 5.3
