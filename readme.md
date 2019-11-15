@@ -10,7 +10,7 @@ A simple maintenance mode plugin for WordPress which allows:
 - display custom HTML / CSS
 
 ## Screenshot
-![](http://i.imgur.com/bJ1Uof1.png)
+![](https://i.imgur.com/v8rrFdO.png)
 
 ## Compatibility
 Tested up to WordPress version 5.2.2
