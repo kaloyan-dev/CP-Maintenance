@@ -11,6 +11,3 @@ A simple maintenance mode plugin for WordPress which allows:
 
 ## Screenshot
 ![](https://i.imgur.com/v8rrFdO.png)
-
-## Compatibility
-Tested up to WordPress version 5.3
